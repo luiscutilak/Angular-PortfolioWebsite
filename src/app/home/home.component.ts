@@ -7,6 +7,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+featureProject: any;
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('Luis Cutilak - Home');

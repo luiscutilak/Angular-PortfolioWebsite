@@ -1,14 +1,13 @@
-import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Injectable } from '@angular/core';
 import { Project } from '../_models/Project';
 import { Tag } from '../_models/Tag';
 
-@Component({
-  selector: 'app-portfolio',
-  templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class PortfolioComponent {
+
+export class ProjectsService {
+
   projects: Project[] = [
     
     {id: 0, name: "BuzzFeed Project", pictures: ["../../assets/img1.png", "../../assets/img2.png", "../../assets/img3.png"], projectLink: "https://github.com/luiscutilak/DIO-Angular-BuzzFeed", summary: "Fullstack web app developed using CSS, HTML, Angular and Typescript", description: "Project developed for a question and answer quizz, carried out by the technology school. Digital Inovation One, hardSkills such as CSS, HTML, Angular and TypeScript were used in the project.", tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML, Tag.CSS]},
@@ -19,12 +18,22 @@ export class PortfolioComponent {
     {id: 5, name: "Marvel-Blog Project", pictures: ["../../assets/img1.png", "../../assets/img2.png", "../../assets/img3.png"], projectLink: "https://github.com/luiscutilak/angular-blog", summary: "Fullstack web app developed using CSS, HTML, Angular and Typescript", description: "Blog with fictional news about the main Marvel characters", tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML, Tag.CSS]},
     {id: 6, name: "Pro-WayComputers e-commerce Project", pictures: ["../../assets/img1.png", "../../assets/img2.png", "../../assets/img3.png"], projectLink: "https://github.com/luiscutilak/angular-blog", summary: "Fullstack web app developed using CSS, HTML, Angular and Typescript", description: "Blog with fictional news about the main Marvel characters", tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML, Tag.CSS]},
   ];
-
     
 
 
-  constructor(private titleService: Title){
-    this.titleService.setTitle('Luis Cutilak - Portfolio');
+  constructor() { }
 
+  GetProjects() {
+    return this.projects;
+  }
+
+  GetProjectById(id: number) : Project {
+    let project = this.projects.find(project => project.id === id);
+
+    if(project === undefined) {
+      throw new TypeError('There is no project that matches the id: ' + id);
+    }
+
+    return project;
   }
 }
