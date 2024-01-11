@@ -3,6 +3,7 @@
     <div class="mb-2">
         <div>
             <button class="btn btn-outline-primary mb-2 me-2" (click)="isCollapsed = !isCollapsed">Filter</button>
+            <button class="btn btn-outline-secondary mb-2" (click)="ResetFilters()" [hidden]="!filtering">Reset</button>
         </div>
 
         <div [collapse]="isCollapsed" [isAnimated]="true">
@@ -13,13 +14,97 @@
                             <small><b>Languages:</b></small>
                             <div class="form-group">
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input position-static me-2">
+                                    <input type="checkbox" class="form-check-input position-static me-2"
+                                    [(ngModel)]="typescript"
+                                    (change)="Filter()"
+                                    name="Typescript">
                                     <label class="form-check-label small">Typescript</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input position-static me-2"
+                                    [(ngModel)]="java"
+                                    (change)="Filter()"
+                                    name="Java">
+                                    <label class="form-check-label small">Java</label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input position-static me-2"
+                                        [(ngModel)]="javascript"
+                                        (change)="Filter()"
+                                        name="Javascript">
+                                        <label class="form-check-label small">Javascript</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input position-static me-2"
+                                        [(ngModel)]="html"
+                                        (change)="Filter()"
+                                        name="HTML">
+                                        <label class="form-check-label small">HTML</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input position-static me-2"
+                                        [(ngModel)]="css"
+                                        (change)="Filter()"
+                                        name="CSS">
+                                        <label class="form-check-label small">CSS</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input position-static me-2"
+                                        [(ngModel)]="sql"
+                                        (change)="Filter()"
+                                        name="SQL">
+                                        <label class="form-check-label small">SQL</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
                             <small><b>Frameworks:</b></small>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input position-static me-2"
+                                    [(ngModel)]="angular"
+                                    (change)="Filter()"
+                                    name="Angular">
+                                    <label class="form-check-label small">Angular</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input position-static me-2"
+                                    [(ngModel)]="springboot"
+                                    (change)="Filter()"
+                                    name="Springboot">
+                                    <label class="form-check-label small">Springboot</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input position-static me-2"
+                                    [(ngModel)]="tdd"
+                                    (change)="Filter()"
+                                    name="TDD">
+                                    <label class="form-check-label small">TDD</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input position-static me-2"
+                                    [(ngModel)]="docker"
+                                    (change)="Filter()"
+                                    name="Docker">
+                                    <label class="form-check-label small">DOCKER</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
